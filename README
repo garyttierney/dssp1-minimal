@@ -1,8 +1,24 @@
-IMPORTANT
+ABOUT
+
+This SELinux security policy model aims to provide you with a empty canvas and a
+comprehensive set of attributes that enable you to use SELinux to address a wide
+range of access control challenges. Little to no assumptions were made about your
+environment and your requirements.
+
+The following security models are enabled:
+
+	IBAC, RBAC, RBACsep, TE, MCS
+
+Learn about Common Intermediate Language:
+
+	https://github.com/SELinuxProject/selinux/blob/master/secilc/docs/README.md
 
 How to build:
 
 	secilc `/bin/find ./src -type f \( -iname "*.cil" \) | /bin/cut -d/ -f2-`
+
+
+IMPORTANT
 
 Package managers are often (badly) aware of SELinux and this causes issues
 
