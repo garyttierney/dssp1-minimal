@@ -1,0 +1,24 @@
+(selinuxuserdefault sys.id (systemlow systemhigh))
+
+(class context (translate contains))
+(classorder (unordered context))
+
+(class dbus (acquire_svc send_msg))
+(classorder (unordered dbus))
+
+(class passwd (passwd chfn chsh rootok crontab))
+(classorder (unordered passwd))
+
+(class service (stop status disable enable reload start))
+(classorder (unordered service))
+
+(in sys
+	(allow isid self (context (all)))
+	(allow isid self (dbus (all)))
+	(allow isid self (passwd (all)))
+
+	(allow isid self (service (all)))
+
+	(allow isid file.config.config_file (service (all)))
+	(allow isid file.runtime.runtime_file (service (all)))
+	(allow isid lib.library.lib_file (service (all))))
