@@ -1,5 +1,9 @@
 IMPORTANT
 
+How to build:
+
+	secilc `/bin/find ./src -type f \( -iname "*.cil" \) | /bin/cut -d/ -f2-`
+
 Package managers are often (badly) aware of SELinux and this causes issues
 
 	To disable SELinux awareness when running a transaction with dnf:
