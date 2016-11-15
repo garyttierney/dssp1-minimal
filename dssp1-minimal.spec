@@ -108,7 +108,7 @@ install -m0644 config/file_contexts.subs_dist %{buildroot}%{_sysconfdir}/selinux
 %{__mkdir} -p %{buildroot}%{_sysconfdir}/selinux/dssp1-minimal/contexts/users
 %{__mkdir} -p %{buildroot}%{_sharedstatedir}/selinux
 semodule -p %{buildroot} --priority=100 \
-	-i `/bin/find ./ -type f \( -iname "*.cil" \) | /bin/cut -d/ -f2-` \
+	-i `/bin/find ./src -type f \( -iname "*.cil" \) | /bin/cut -d/ -f2-` \
 	-N -s dssp1-minimal
 
 %clean
