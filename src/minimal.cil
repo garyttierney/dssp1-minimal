@@ -1,4 +1,4 @@
-(selinuxuserdefault sys.id (systemlow systemhigh))
+(selinuxuserdefault sys.id (systemlow systemlow))
 
 (class context (translate contains))
 (classorder (unordered context))
