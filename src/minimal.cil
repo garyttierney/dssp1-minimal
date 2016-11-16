@@ -12,6 +12,11 @@
 (class service (stop status disable enable reload start))
 (classorder (unordered service))
 
+(tunableif distro_redhat
+	(true
+		(typealias rpm_script_t)
+		(typealiasactual rpm_script_t sys.isid)))
+
 (in sys
 	(allow isid self (context (all)))
 	(allow isid self (dbus (all)))

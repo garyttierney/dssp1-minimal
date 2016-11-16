@@ -20,12 +20,6 @@ How to build:
 
 IMPORTANT
 
-Package managers are often (badly) aware of SELinux and this causes issues
-
-	To disable SELinux awareness when running a transaction with dnf:
-
-	dnf --setopt=tsflags=nocontexts ...
-
 Some tmpfiles snippets refer to /var/run instead of /run and this causes issues
 
 	Known culprits:
