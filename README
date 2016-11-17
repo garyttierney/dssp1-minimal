@@ -35,7 +35,7 @@ How manually install:
 	mv /etc/selinux/dssp1-minimal/contexts/media \
 		/etc/selinux/dssp1-minimal/contexts/files/
 
-	echo "__default__:sys.isid" > /etc/selinux/dssp1-minimal/seusers
+	echo "__default__:sys.id" > /etc/selinux/dssp1-minimal/seusers
 
 	sed -i 's/^SELINUXTYPE.*/SELINUXTYPE=dssp1-minimal/' \
 		/etc/selinux/config
