@@ -17,6 +17,30 @@ How to build:
 
 	secilc `/bin/find ./src -type f \( -iname "*.cil" \) | /bin/cut -d/ -f2-`
 
+How manually install:
+
+	mkdir -p /etc/selinux/dssp1-minimal/{contexts/files,policy}
+
+	cp policy.30 /etc/selinux/dssp1-minimal/policy/
+	cp file_contexts /etc/selinux/dssp1-minimal/contexts/files/
+
+	cp config/* /etc/selinux/dssp1-minimal/contexts/
+
+	mv /etc/selinux/dssp1-minimal/contexts/file_contexts.subs_dist \
+		/etc/selinux/dssp1-minimal/contexts/files/
+	mv /etc/selinux/dssp1-minimal/contexts/media \
+		/etc/selinux/dssp1-minimal/contexts/files/
+
+	echo "__default__:sys.isid" > /etc/selinux/dssp1-minimal/seusers
+
+	sed -i 's/^SELINUXTYPE.*/SELINUXTYPE=dssp1-minimal/' \
+		/etc/selinux/config
+
+How to enable:
+
+	setenforce 0 && load_policy && restorecon -RvF /
+	reboot
+
 
 IMPORTANT
 
