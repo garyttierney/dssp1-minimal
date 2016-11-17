@@ -3,7 +3,15 @@
 set -e
 set -o pipefail
 
-buildit ()
+test -e /bin/dnf || retval=192
+
+if [[ $retval = 192 ]]
+then
+	echo "/bin/dnf is required but not installed"
+	exit
+fi
+
+__buildit ()
 {
 	MINHEAD=`/bin/curl -s \
 		https://api.github.com/repos/defensec/dssp1-minimal/git/refs/heads/master \
@@ -39,14 +47,14 @@ buildit ()
 	/bin/rpmbuild -ba ${HOME}/rpmbuild/SPECS/dssp1-minimal.spec
 }
 
-devtree ()
+__devtree ()
 {
 	if ! /bin/test -d ${HOME}/rpmbuild
 	then
 
 		/bin/rpmdev-setuptree
 
-		buildit
+		__buildit
 
 		/bin/mv ${HOME}/rpmbuild/{RPMS/noarch/,SRPMS}/dssp1-*.rpm \
 			${HOME}/
@@ -54,7 +62,7 @@ devtree ()
 		/bin/rm -rf ${HOME}/rpmbuild
 	else
 
-		buildit
+		__buildit
 	fi
 }
 
@@ -66,28 +74,35 @@ then
 		/bin/dnf -y --setopt=install_weak_deps=false install \
 			rpmdevtools policycoreutils wget sed curl
 
-		devtree
+		__devtree
 
 		/bin/dnf -y history undo last
 	else
 
-		devtree
+		__devtree
 	fi
 
 elif ! [[ $UID = 0 ]]
 then
+	test -e /bin/sudo || retval=192
+
+	if [[ $retval = 192 ]]
+	then
+		echo "/bin/sudo is required but not installed"
+		exit
+	fi
+
 	if ! /bin/sudo /bin/rpm -q rpmdevtools rpm-build policycoreutils wget sed curl
 	then
-
 		/bin/sudo /bin/dnf -y --setopt=install_weak_deps=false install \
 			rpmdevtools policycoreutils wget sed curl
 
-		devtree
+		__devtree
 
 		/bin/sudo /bin/dnf -y history undo last
 	else
 
-		devtree
+		__devtree
 	fi
 fi
 
