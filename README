@@ -47,6 +47,12 @@ How to enable:
 	reboot
 
 
+REQUIREMENTS
+
+	policycoreutils
+	secilc
+
+
 IMPORTANT
 
 Some tmpfiles snippets refer to /var/run instead of /run and this causes issues
