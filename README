@@ -17,6 +17,10 @@ How to build:
 
 	secilc `/bin/find ./src -type f \( -iname "*.cil" \) | /bin/cut -d/ -f2-`
 
+How to build Red Hat packages:
+
+	bash dssp1-minimal-rpm
+
 How manually install:
 
 	mkdir -p /etc/selinux/dssp1-minimal/{contexts/files,policy}
