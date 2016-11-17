@@ -13,12 +13,12 @@ buildit ()
 		https://api.github.com/repos/defensec/dssp1-base/git/refs/heads/master \
 			| /bin/grep "sha" | /bin/awk -F "\"" '{ print $4 }'`
 
-	/bin/test -e ${HOME}/rpmbuild/SOURCES/dssp1-minimal-${DSSP1MINHEAD}.tar.gz \
+	/bin/test -e ${HOME}/rpmbuild/SOURCES/dssp1-minimal-${MINHEAD}.tar.gz \
 		|| /bin/wget -q \
 			https://github.com/defensec/dssp1-minimal/archive/${MINHEAD}/dssp1-minimal-${MINHEAD}.tar.gz \
 				-O ${HOME}/rpmbuild/SOURCES/dssp1-minimal-${MINHEAD}.tar.gz
 
-	/bin/test -e ${HOME}/rpmbuild/SOURCES/dssp1-base-${DSSP1BASEHEAD}.tar.gz \
+	/bin/test -e ${HOME}/rpmbuild/SOURCES/dssp1-base-${BASEHEAD}.tar.gz \
 		|| /bin/wget -q \
 			https://github.com/defensec/dssp1-base/archive/${BASEHEAD}/dssp1-base-${BASEHEAD}.tar.gz \
 				-O ${HOME}/rpmbuild/SOURCES/dssp1-base-${BASEHEAD}.tar.gz
