@@ -1,0 +1,9 @@
+order file.cil:
+
+	currenlty only the top level is ordered, take care of the remainder
+
+consider make sys.isid only unconfined in dssp1-minimal and not in base:
+
+	if i keep sys.isid unconfined in base then i should not allow it to run
+	systemd with a dyntransition (setcon_raw) in dssp1, and instead force an
+	exec-based transition there
