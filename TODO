@@ -1,6 +1,6 @@
 order file.cil:
 
-	currenlty only the top level is ordered, take care of the remainder
+	from "(block runtime_config_obj_template"
 
 consider make sys.isid only unconfined in dssp1-minimal and not in base:
 
