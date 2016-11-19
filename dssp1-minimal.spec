@@ -8,7 +8,7 @@
 
 Summary: Defensec SELinux Security Policy
 Name: dssp1
-Version: 1.0
+Version: 1.1
 Release: %(date +%Y%%m%%d)git%{shortcommit0}%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -22,7 +22,7 @@ BuildArch: noarch
 
 %description
 SELinux security policy with a strong focus on flexibility and accessibility.
-Provides the Defensec SELinux Security Policy base package.
+Provides the base Defensec SELinux Security Policy package.
 
 %files
 %defattr(-,root,root,-)
@@ -144,5 +144,5 @@ exit 0
 selinuxenabled && semodule -nB
 
 %changelog
-* Tue Nov 15 2016 Dominick Grift <dac.override@gmail.com> - 1.0-%(date +%Y%%m%%d)git%{shortcommit0}
+* Sat Nov 19 2016 Dominick Grift <dac.override@gmail.com> - 1.1-%(date +%Y%%m%%d)git%{shortcommit0}
 - Git snapshot

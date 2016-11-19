@@ -1,6 +1,6 @@
 ABOUT
 
-This SELinux security policy model aims to provide you with a empty canvas and a
+This SELinux security policy model aims to provide you with an empty canvas and a
 comprehensive set of attributes that enable you to use SELinux to address a wide
 range of access control challenges. Little to no assumptions were made about your
 environment and your requirements.
