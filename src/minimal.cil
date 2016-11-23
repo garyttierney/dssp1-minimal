@@ -26,4 +26,16 @@
 
 	(allow isid file.config.config_file (service (all)))
 	(allow isid file.runtime.runtime_file (service (all)))
-	(allow isid lib.library.lib_file (service (all))))
+	(allow isid lib.library.lib_file (service (all)))
+
+	(call sys.unconfined_subj_type (isid))
+	(call .dev.unconfined_subj_type (isid))
+	(call file.unconfined_subj_type (isid))
+	(call .fs.unconfined_subj_type (isid))
+	(call net.unconfined_subj_type (isid))
+	(call sec.unconfined_subj_type (isid))
+	(call subj.unconfined_subj_type (isid))
+	(call term.unconfined_subj_type (isid))
+
+	(optional sys_optional_stor
+		(call stor.unconfined_subj_type (isid))))
