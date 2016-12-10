@@ -1,8 +1,12 @@
 /usr/lib64 /usr/lib
+/usr/local/lib64 /usr/lib
 
 /usr/local/bin /usr/bin
+
 /usr/local/etc /etc
+
 /usr/local/lib /usr/lib
-/usr/local/lib64 /usr/lib
+
 /usr/local/sbin /usr/sbin
+
 /usr/local/share /usr/share
