@@ -38,7 +38,9 @@ How manually install:
 
 	echo "__default__:sys.id" > /etc/selinux/dssp1-minimal/seusers
 
-	sed -i 's/^SELINUXTYPE.*/SELINUXTYPE=dssp1-minimal/' \
+	sed -i 's/^SELINUXTYPE=.*/SELINUXTYPE=dssp1-minimal/' \
+		/etc/selinux/config
+	sed -i 's/^SELINUX=.*/SELINUXTYPE=permissive/' \
 		/etc/selinux/config
 
 How to enable:
@@ -46,6 +48,10 @@ How to enable:
 	setenforce 0 && load_policy && restorecon -RvF /
 	reboot
 
+	sed -i 's/^SELINUX=.*/SELINUXTYPE=enforcing/' \
+		/etc/selinux/config
+
+	setenforce 1
 
 REQUIREMENTS
 
