@@ -40,7 +40,7 @@ How manually install:
 
 	sed -i 's/^SELINUXTYPE=.*/SELINUXTYPE=dssp1-minimal/' \
 		/etc/selinux/config
-	sed -i 's/^SELINUX=.*/SELINUXTYPE=permissive/' \
+	sed -i 's/^SELINUX=.*/SELINUX=permissive/' \
 		/etc/selinux/config
 
 How to enable:
@@ -48,7 +48,7 @@ How to enable:
 	setenforce 0 && load_policy && restorecon -RvF /
 	reboot
 
-	sed -i 's/^SELINUX=.*/SELINUXTYPE=enforcing/' \
+	sed -i 's/^SELINUX=.*/SELINUX=enforcing/' \
 		/etc/selinux/config
 
 	setenforce 1
