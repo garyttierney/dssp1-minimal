@@ -1,1 +1,2 @@
 (tunable distro_redhat true)
+(tunable distro_debian false)

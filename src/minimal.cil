@@ -17,6 +17,11 @@
 		(typealias rpm_script_t)
 		(typealiasactual rpm_script_t sys.isid)))
 
+(tunableif distro_debian
+	(true
+		(typealias dpkg_script_t)
+		(typealiasactual dpkg_script_t sys.isid)))
+
 (in sys
 	(allow isid self (context (all)))
 	(allow isid self (dbus (all)))

@@ -57,7 +57,7 @@ IMPORTANT
 
 Some tmpfiles snippets refer to /var/run instead of /run and this causes issues
 
-	Known culprits:
+	Known culprits (Fedora):
 
 	/usr/lib/tmpfiles.d/pam.conf
 	/usr/lib/tmpfiles.d/libselinux.conf
@@ -68,3 +68,19 @@ Some tmpfiles snippets refer to /var/run instead of /run and this causes issues
 		sed -i 's/\/var\/run/\/run/' /etc/tmpfiles.d/pam.conf
 	cp /usr/lib/tmpfiles.d/libselinux.conf /etc/tmpfiles.d/ && \
 		sed -i 's/\/var\/run/\/run/' /etc/tmpfiles.d/libselinux.conf
+
+	Known culprits (Debian):
+
+	/usr/lib/tmpfiles.d/sshd.conf
+
+	To solve:
+
+	cp /usr/lib/tmpfiles.d/sshd.conf /etc/tmpfiles.d/ && \
+		sed -i 's/\/var\/run/\/run/' /etc/tmpfiles.d/sshd.conf
+
+	/usr/lib/systemd/system/dbus.socket
+
+	To solve:
+
+	cp /usr/lib/systemd/system/dbus.socket /etc/systemd/system/ && \
+		sed -i 's/\/var\/run/\/run/' /etc/systemd/system/dbus.socket
