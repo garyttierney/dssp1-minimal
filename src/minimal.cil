@@ -29,8 +29,11 @@
 
 	(allow isid self (service (all)))
 
+	(allow isid .dev.null.isid (service (all)))
+
 	(allow isid file.config.config_file (service (all)))
 	(allow isid file.runtime.runtime_file (service (all)))
+
 	(allow isid lib.library.lib_file (service (all)))
 
 	(call sys.unconfined_subj_type (isid))
