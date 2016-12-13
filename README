@@ -85,8 +85,11 @@ Some tmpfiles snippets refer to /var/run instead of /run and this causes issues
 		sed -i 's/\/var\/run/\/run/' /etc/tmpfiles.d/sshd.conf
 
 	/usr/lib/systemd/system/dbus.socket
+	/usr/lib/systemd/system/avahi-daemon.socket
 
 	To solve:
 
 	cp /usr/lib/systemd/system/dbus.socket /etc/systemd/system/ && \
 		sed -i 's/\/var\/run/\/run/' /etc/systemd/system/dbus.socket
+	cp /usr/lib/systemd/system/avahi-daemon.socket /etc/systemd/system/ && \
+		sed -i 's/\/var\/run/\/run/' /etc/systemd/system/avahi-daemon.socket
